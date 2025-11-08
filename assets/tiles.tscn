@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb5ohtskp1ulp"]
+
+[ext_resource type="PackedScene" uid="uid://m7gjl1vsxjj8" path="res://assets/tiles.blend" id="1_ovffk"]
+[ext_resource type="Texture2D" uid="uid://ckfallsntmtxf" path="res://assets/tilemapnopadding.PNG" id="2_s2o6j"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ovffk"]
+points = PackedVector3Array(-1, 1, 1, -1, -1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tttn6"]
+shading_mode = 0
+albedo_texture = ExtResource("2_s2o6j")
+uv1_scale = Vector3(1.8, 1.8, 1.8)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovffk"]
+size = Vector3(2, 2, 2)
+
+[node name="tiles" instance=ExtResource("1_ovffk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ovffk")
+
+[node name="Cube_001" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_tttn6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_ovffk")

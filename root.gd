@@ -1,20 +1,13 @@
-extends Node3D
+class_name GameController extends Node
 
-@export var gridContainer: GridContainer
-@export var gridMap: NewGridMap
-@export var rectScene: PackedScene
+@onready var game_controller: GameController = self
+
+@export var world3d: Node3D
+@export var world2d: Node2D
+@export var gui: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var slice := gridMap.get_slice(Vector3i(0, 1, 0))
-	gridContainer.columns = slice[0].size()
-	
-	for x: Array in slice:
-		for y in x:
-			var child := rectScene.instantiate() as ColorRect
-			child.color = Color.WHITE if y else Color.BLACK
-			gridContainer.add_child(child)
-	
 	pass # Replace with function body.
 
 
