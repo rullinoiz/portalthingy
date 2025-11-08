@@ -25,7 +25,7 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			objects.append(array)
 		
 	for v: Vector3i in get_used_cells():
-		var normalized := Vector3i(v.x - smallestX, v.y - smallestY, v.z - smallestZ)
+		var normalized := Vector3i(size.x - v.x + smallestX - 1, size.y - v.y + smallestY - 1, size.z - v.z + smallestZ - 1)
 		if slice.x == 1 or slice.x == -1: 
 			var currentRow = objects[normalized.y]
 			var current: Variant = currentRow.get(normalized.z)
@@ -33,7 +33,7 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			if slice.x == 1 and ((not current) or current.x < v.x):
 				currentRow[normalized.z] = v
 			elif slice.x == -1 and ((not current) or current.x > v.x):
-				currentRow[normalized.z] = v
+				currentRow[size.z - normalized.z - 1] = v
 		elif slice.y == 1 or slice.y == -1:
 			var currentRow = objects[normalized.x]
 			var current: Variant = currentRow.get(normalized.z)
@@ -41,7 +41,7 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			if slice.y == 1 and ((not current) or current.y < v.y):
 				currentRow[normalized.z] = v
 			elif slice.y == -1 and ((not current) or current.y > v.y):
-				currentRow[normalized.z] = v
+				currentRow[size.z - normalized.z - 1] = v
 		elif slice.z == 1 or slice.z == -1:
 			var currentRow = objects[normalized.y]
 			var current: Variant = currentRow.get(normalized.x)
@@ -49,10 +49,15 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			if slice.z == 1 and ((not current) or current.z < v.z):
 				currentRow[normalized.x] = v
 			elif slice.z == -1 and ((not current) or current.z > v.z):
-				currentRow[normalized.x] = v
+				currentRow[size.x - normalized.x - 1] = v
 	
 	return objects
+
+func get_mesh(vector: Vector3i) -> Mesh:
+	var id := get_cell_item(vector)
+	var mesh := mesh_library.get_item_mesh(id)
 	
+	return mesh
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
