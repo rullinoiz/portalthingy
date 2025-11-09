@@ -1,5 +1,8 @@
 class_name NewGridMap extends GridMap
 
+@export var exit: Exit
+@export var spawn: Spawn
+
 var size: Vector3i
 
 var smallestX: int = 1000

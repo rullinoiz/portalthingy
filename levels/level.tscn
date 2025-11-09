@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://vyqt3wc72tij"]
+
+[ext_resource type="MeshLibrary" uid="uid://g5i4wvo1w0fu" path="res://assets/tiles.tres" id="1_vonw3"]
+[ext_resource type="Script" uid="uid://c1mlldvhm7sd7" path="res://new_grid_map.gd" id="2_oi3di"]
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_vonw3")
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_oi3di")
+metadata/_custom_type_script = "uid://c1mlldvhm7sd7"
+metadata/_editor_floor_ = Vector3(0, 0, 0)

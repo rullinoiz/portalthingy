@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg8tff8u421qk"]
+
+[ext_resource type="Script" uid="uid://bcoco3u8tlj1o" path="res://datatypes/exit.gd" id="1_f3onf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6naq"]
+
+[node name="Exit" type="Area3D"]
+script = ExtResource("1_f3onf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d6naq")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+gizmo_extents = 5.0

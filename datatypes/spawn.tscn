@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5i1ac37ggnw2"]
+
+[ext_resource type="Script" uid="uid://3uv1hvn0d70f" path="res://datatypes/spawn.gd" id="1_ed61v"]
+
+[node name="Spawn" type="Marker3D"]
+gizmo_extents = 1.49
+script = ExtResource("1_ed61v")

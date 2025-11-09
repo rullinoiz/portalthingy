@@ -1,9 +1,9 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 @export var gridmap: GridMap
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 10
+const JUMP_VELOCITY = 7
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

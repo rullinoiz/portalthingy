@@ -1,10 +1,5 @@
-class_name GameController extends Node
+class_name Spawn extends Marker3D
 
-@onready var game_controller: GameController = self
-
-@export var world3d: GameWorld3D
-@export var world2d: Node2D
-@export var gui: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,10 +1,8 @@
-class_name GameController extends Node
+class_name LevelSlice extends Node3D
 
-@onready var game_controller: GameController = self
-
-@export var world3d: GameWorld3D
-@export var world2d: Node2D
-@export var gui: Control
+func free_children() -> void:
+	for child in get_children():
+		child.queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
