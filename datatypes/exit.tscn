@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://bcoco3u8tlj1o" path="res://datatypes/exit.gd" id="1_f3onf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6naq"]
+size = Vector3(5.514038, 1, 1)
 
 [node name="Exit" type="Area3D"]
 script = ExtResource("1_f3onf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008483887, 0, 0)
 shape = SubResource("BoxShape3D_d6naq")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 

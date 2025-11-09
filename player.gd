@@ -1,9 +1,11 @@
 class_name Player extends CharacterBody3D
 
-const SPEED = 5
+const SPEED = 4
 const JUMP_VELOCITY = 7
 
 func _physics_process(delta: float) -> void:
+	if Global.world3d.rotating: return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -28,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		if not results.is_empty():
 			var collider = results.collider
 			if collider:
-				var pos: Vector3 = Vector3((collider as Node3D).get_parent().get_meta("grid_pos")) * Global.world3d.currentMap.cell_size
+				var pos := Vector3((collider as Node3D).get_parent().get_meta("grid_pos"))
 				Global.world3d.rotate_map(currentRotation, pos)
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -50,5 +52,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if position.x > 30:
+		Global.world3d.next_level()
 
 	move_and_slide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce8xwv38c4hcm"]
+[gd_scene load_steps=7 format=3 uid="uid://dr7ge4wsofrvj"]
 
 [ext_resource type="Script" uid="uid://vs05tj2rwp1a" path="res://root.gd" id="1_vxcut"]
 [ext_resource type="Script" uid="uid://5v33ruw5b64k" path="res://menu.gd" id="2_c30p2"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
 
 [sub_resource type="Environment" id="Environment_pyidc"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.26
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("world3d", "world2d", "gui")]
 script = ExtResource("1_vxcut")
@@ -38,14 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.606358, -1)
 floor_stop_on_slope = false
 floor_max_angle = 1.2269665
 platform_floor_layers = 4278190081
-
-[node name="SpotLight3D" type="SpotLight3D" parent="World3D"]
-transform = Transform3D(0.82671744, -0.502348, 0.25334716, 0, 0.45030102, 0.8928768, -0.56261736, -0.7381568, 0.37227172, 12.230225, 47.24643, 4.539448)
-light_energy = 16.0
-light_indirect_energy = 8.171
-light_volumetric_fog_energy = 1.566
-light_size = 1.0
-spot_range = 4096.0
 
 [node name="LevelSlice" type="Node3D" parent="World3D"]
 script = ExtResource("5_fu3v7")
