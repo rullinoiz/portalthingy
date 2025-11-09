@@ -2,6 +2,8 @@ class_name GameWorld3D extends Node3D
 
 @export var slicedMap: LevelSlice
 @export var player: Player
+@export var camera: Camera3D
+@export var cameraPivot: Node3D
 
 var currentMap: NewGridMap
 var currentRotation := Vector3i(0, 0, 1)
@@ -11,7 +13,7 @@ var mapId := 0
 var tilesScene: PackedScene = preload("res://assets/tiles.tscn")
 var tiles: Array[MeshInstance3D]
 
-signal map_changed()
+signal map_changed(id: int)
 signal map_rotated(v: Vector3i)
 
 signal new_slice(slice: Array[Array])
@@ -28,8 +30,12 @@ func load_map(id: int) -> void:
 	player.velocity = Vector3(0, 0, 0)
 	
 	currentSlice = currentMap.get_slice(currentRotation)
-	new_slice.emit(currentSlice)
+	create_slice(currentRotation)
 	
+	currentMap.visible = false
+
+func create_slice(r: Vector3i) -> void:
+	new_slice.emit(currentSlice)
 	slicedMap.free_children()
 	
 	for y: Array in currentSlice:
@@ -41,6 +47,7 @@ func load_map(id: int) -> void:
 			var tile := tiles[mesh].duplicate(true)
 			
 			tile.position = currentMap.cell_size * Vector3(x)
+			tile.set_meta("grid_pos", x)
 			tile.transform.basis = meshTransform
 			
 			if currentRotation.x == 1 or currentRotation.x == -1:
@@ -51,10 +58,43 @@ func load_map(id: int) -> void:
 				tile.position.z = 0
 			
 			slicedMap.add_child(tile)
-	
-	currentMap.visible = false
 
-func rotate_map(rotation: Vector3i) -> void:
+func rotate_map(r: Vector3i, pos: Vector3) -> void:
+	currentRotation = r
+	print(pos)
+	
+	if r.x == 1:
+		cameraPivot.rotation_degrees.y = 90
+		cameraPivot.rotation_degrees.x = 0
+		pos.x = 0
+		pos.y = player.position.y
+	elif r.x == -1:
+		cameraPivot.rotation_degrees.y = -90
+		cameraPivot.rotation_degrees.x = 0
+		pos.x = 0
+		pos.y = player.position.y
+	elif r.y == 1:
+		cameraPivot.rotation_degrees.x = -90
+		cameraPivot.rotation_degrees.y = 0
+		pos.y = 2
+	elif r.y == -1:
+		cameraPivot.rotation_degrees.x = 90
+		cameraPivot.rotation_degrees.y = 0
+		pos.y = 2
+	elif r.z == 1:
+		cameraPivot.rotation_degrees.y = 0
+		cameraPivot.rotation_degrees.x = 0
+		pos.z = 0
+		pos.y = player.position.y
+	elif r.z == -1:
+		cameraPivot.rotation_degrees.y = 180
+		cameraPivot.rotation_degrees.x = 0
+		pos.z = 0
+		pos.y = player.position.y
+	
+	player.position = pos
+	currentSlice = currentMap.get_slice(currentRotation)
+	create_slice(r)
 	
 	pass
 
@@ -65,8 +105,6 @@ func _ready() -> void:
 	for child in p.get_children():
 		child.owner = null
 		tiles.append(child)
-	
-	p.queue_free()
 	
 	load_map(0)
 

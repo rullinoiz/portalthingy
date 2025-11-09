@@ -19,42 +19,41 @@ anchors_preset = 0
 offset_right = 352.0
 offset_bottom = 326.0
 
-[node name="GridContainer" type="GridContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="World2D" type="Node2D" parent="."]
 
-[node name="World3D" type="Node3D" parent="." node_paths=PackedStringArray("slicedMap", "player")]
+[node name="World3D" type="Node3D" parent="." node_paths=PackedStringArray("slicedMap", "player", "camera", "cameraPivot")]
 script = ExtResource("2_jnlp7")
 slicedMap = NodePath("LevelSlice")
 player = NodePath("Player")
-
-[node name="Camera3D" type="Camera3D" parent="World3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5984669, 4.3811097, 47.25389)
-projection = 1
-size = 35.466
+camera = NodePath("Center/Spinner/Camera3D")
+cameraPivot = NodePath("Center")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
 environment = SubResource("Environment_pyidc")
 
 [node name="Player" parent="World3D" instance=ExtResource("2_pyidc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.606358, -1)
 floor_stop_on_slope = false
 floor_max_angle = 1.2269665
 platform_floor_layers = 4278190081
 
 [node name="SpotLight3D" type="SpotLight3D" parent="World3D"]
-transform = Transform3D(1, 0, 0, 0, 0.9026078, 0.43046385, 0, -0.43046385, 0.9026078, 0, 26, 25)
+transform = Transform3D(0.82671744, -0.502348, 0.25334716, 0, 0.45030102, 0.8928768, -0.56261736, -0.7381568, 0.37227172, 12.230225, 47.24643, 4.539448)
 light_energy = 16.0
 light_indirect_energy = 8.171
 light_volumetric_fog_energy = 1.566
-light_size = 0.08
+light_size = 1.0
 spot_range = 4096.0
 
 [node name="LevelSlice" type="Node3D" parent="World3D"]
 script = ExtResource("4_28aoi")
+
+[node name="Center" type="Node3D" parent="World3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="Spinner" type="Node3D" parent="World3D/Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.36)
+
+[node name="Camera3D" type="Camera3D" parent="World3D/Center/Spinner"]
+projection = 1
+size = 33.858

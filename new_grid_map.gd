@@ -35,7 +35,7 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			
 			if slice.x == 1 and ((not current) or current.x < v.x):
 				currentRow[normalized.z] = v
-			elif slice.x == -1 and ((not current) or current.x > v.x):
+			elif slice.x == -1 and ((not current) or current.x < v.x):
 				currentRow[size.z - normalized.z - 1] = v
 		elif slice.y == 1 or slice.y == -1:
 			var currentRow = objects[normalized.x]
