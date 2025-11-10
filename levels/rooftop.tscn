@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://3opl8gn3534x"]
 
 [ext_resource type="Texture2D" uid="uid://bod53qshnp65r" path="res://assets/sumbg2.png" id="1_b6qnm"]
-[ext_resource type="Script" path="res://levels/rooftop.gd" id="1_cyuf6"]
+[ext_resource type="Script" uid="uid://dc37js8ttojvt" path="res://levels/rooftop.gd" id="1_cyuf6"]
 [ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="2_cyuf6"]
 [ext_resource type="Texture2D" uid="uid://c4svvpyq2nlr0" path="res://assets/rene.PNG" id="3_nu2v4"]
 [ext_resource type="AudioStream" uid="uid://vnfwhbfgqdr3" path="res://sfx/wind.wav" id="4_tbmbm"]
@@ -100,9 +100,5 @@ script = ExtResource("6_nu2v4")
 position = Vector2(877.6516, 1275.4796)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_nu2v4")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="therefore_i_am"
-run/main_scene="uid://0rfi5qxt3cy4"
+run/main_scene="uid://3opl8gn3534x"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="uid://jghthnddrj62"

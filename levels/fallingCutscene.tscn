@@ -1,3 +1,16 @@
-[gd_scene load_steps=0 format=3 uid="uid://cd0ctvle4w0ae"]
+[gd_scene load_steps=3 format=3 uid="uid://cd0ctvle4w0ae"]
+
+[ext_resource type="Script" uid="uid://crsmlt32bu5m" path="res://levels/falling_cutscene.gd" id="1_08fkb"]
+[ext_resource type="VideoStream" uid="uid://duhqwk58mjq6y" path="res://assets/falling off.ogv" id="2_awimi"]
 
 [node name="FallingCutscene" type="Node2D"]
+script = ExtResource("1_08fkb")
+
+[node name="fallingCutscene" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.241573, 2.2543757)
+stream = ExtResource("2_awimi")
+speed_scale = 0.506
+
+[connection signal="finished" from="fallingCutscene" to="." method="_on_falling_cutscene_finished"]
