@@ -21,6 +21,11 @@ signal new_slice(slice: Array[Array])
 
 func next_level() -> void:
 	mapId += 1
+	
+	if mapId == 3:
+		get_tree().change_scene_to_file("res://levels/rooftop.tscn")
+		return
+	
 	load_map(mapId)
 
 func get_pos(grid_pos: Vector3i) -> Vector3:

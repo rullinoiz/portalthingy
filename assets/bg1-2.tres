@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cdcu1mcusxxc4"]
+
+[ext_resource type="Texture2D" uid="uid://nikycgqcxyhq" path="res://assets/cogitobg.png" id="1_6bql1"]
+
+[resource]
+albedo_texture = ExtResource("1_6bql1")

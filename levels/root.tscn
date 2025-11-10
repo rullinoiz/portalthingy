@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr7ge4wsofrvj"]
+[gd_scene load_steps=16 format=3 uid="uid://dr7ge4wsofrvj"]
 
 [ext_resource type="Script" uid="uid://vs05tj2rwp1a" path="res://root.gd" id="1_vxcut"]
 [ext_resource type="Script" uid="uid://b4x5brurg473h" path="res://gui.gd" id="2_5fy3c"]
@@ -6,22 +6,21 @@
 [ext_resource type="Script" uid="uid://dipm33aaguha0" path="res://world3d.gd" id="3_to8sf"]
 [ext_resource type="PackedScene" uid="uid://c0apnob03qvrj" path="res://player.tscn" id="4_8sax3"]
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
-[ext_resource type="Texture2D" uid="uid://nikycgqcxyhq" path="res://assets/cogitobg.png" id="7_5fy3c"]
-[ext_resource type="Texture2D" uid="uid://c4xl60r3l8fru" path="res://assets/bg1.tres" id="7_etutw"]
+[ext_resource type="Material" uid="uid://c4xl60r3l8fru" path="res://assets/bg1.tres" id="7_etutw"]
+[ext_resource type="Material" uid="uid://cdcu1mcusxxc4" path="res://assets/bg1-2.tres" id="7_lhrwy"]
+[ext_resource type="Script" uid="uid://bulks8i6wqmxn" path="res://levels/csg_box_3d_2.gd" id="9_1xl1n"]
+[ext_resource type="Material" uid="uid://cj84vws2bnukk" path="res://assets/bg2.tres" id="9_bjrio"]
+[ext_resource type="Material" uid="uid://b0unp1wa4bbub" path="res://assets/bg2-2.tres" id="9_lhrwy"]
+[ext_resource type="Material" uid="uid://defd05y0x80jr" path="res://assets/bg3.tres" id="10_58oqp"]
+[ext_resource type="Material" uid="uid://bv68o5y284cu5" path="res://assets/bg3-2.tres" id="12_58oqp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i14i6"]
-font_size = 100
+font_size = 200
 
 [sub_resource type="Environment" id="Environment_pyidc"]
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 1.26
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i14i6"]
-albedo_texture = ExtResource("7_etutw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhrwy"]
-albedo_texture = ExtResource("7_5fy3c")
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("world3d", "world2d", "gui")]
 script = ExtResource("1_vxcut")
@@ -54,10 +53,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -148.0
-offset_top = -147.0
-offset_right = 942.0
-offset_bottom = 943.0
+offset_left = -192.0
+offset_top = -179.0
+offset_right = 1338.0
+offset_bottom = 1231.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.1, 0.1)
@@ -70,12 +69,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -130.0
+offset_left = 9.999999
+offset_top = -140.00012
+offset_right = 10.0
+offset_bottom = 132.99988
 grow_horizontal = 2
 grow_vertical = 0
 text = "Take Pill (E)"
 label_settings = SubResource("LabelSettings_i14i6")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="World2D" type="Node2D" parent="."]
 
@@ -112,15 +115,20 @@ size = 33.858
 transform = Transform3D(-120, 0, -1.509958e-07, 0, 41.97542, 0, 1.8119496e-05, 0, -1, 0.56396484, 17.261875, -71.8237)
 flip_faces = true
 size = Vector3(0.5128174, 0.86151123, 1)
-material = SubResource("StandardMaterial3D_i14i6")
+material = ExtResource("7_etutw")
+script = ExtResource("9_1xl1n")
+resources = Array[StandardMaterial3D]([ExtResource("7_etutw"), ExtResource("9_bjrio"), ExtResource("10_58oqp")])
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="World3D"]
 transform = Transform3D(2.336486e-05, 0, -0.99999994, 0, 41.975418, 0, 120, 0, 1.9470718e-07, -76.15996, 17.261875, -0.05366516)
 flip_faces = true
 size = Vector3(0.5128174, 0.86151123, 1)
-material = SubResource("StandardMaterial3D_lhrwy")
+material = ExtResource("7_lhrwy")
+script = ExtResource("9_1xl1n")
+resources = Array[StandardMaterial3D]([ExtResource("7_lhrwy"), ExtResource("9_lhrwy"), ExtResource("12_58oqp")])
 
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="Menu" method="_on_texture_button_pressed"]
 [connection signal="map_changed" from="World3D" to="World3D/Player" method="_on_world_3d_map_changed"]
+[connection signal="map_changed" from="World3D" to="World3D/CSGBox3D2" method="_on_world_3d_map_changed"]
 [connection signal="map_rotated" from="World3D" to="World3D/Player" method="_on_world_3d_map_rotated"]

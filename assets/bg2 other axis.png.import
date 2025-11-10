@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nikycgqcxyhq"
-path.s3tc="res://.godot/imported/cogitobg.png-7969c5cd84ad4f16d81acd57c90c07a5.s3tc.ctex"
-path.etc2="res://.godot/imported/cogitobg.png-7969c5cd84ad4f16d81acd57c90c07a5.etc2.ctex"
+uid="uid://drsj2hbnb4vdl"
+path.s3tc="res://.godot/imported/bg2 other axis.png-fdb258d993dc1672c643d796c0ed8ff5.s3tc.ctex"
+path.etc2="res://.godot/imported/bg2 other axis.png-fdb258d993dc1672c643d796c0ed8ff5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/cogitobg.png"
-dest_files=["res://.godot/imported/cogitobg.png-7969c5cd84ad4f16d81acd57c90c07a5.s3tc.ctex", "res://.godot/imported/cogitobg.png-7969c5cd84ad4f16d81acd57c90c07a5.etc2.ctex"]
+source_file="res://assets/bg2 other axis.png"
+dest_files=["res://.godot/imported/bg2 other axis.png-fdb258d993dc1672c643d796c0ed8ff5.s3tc.ctex", "res://.godot/imported/bg2 other axis.png-fdb258d993dc1672c643d796c0ed8ff5.etc2.ctex"]
 
 [params]
 
