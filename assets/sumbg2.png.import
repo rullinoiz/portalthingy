@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b71wtnsjuyvjo"
-path="res://.godot/imported/credits.png-90b9a326f6707a0fa8c36f808e4378d8.ctex"
+uid="uid://bod53qshnp65r"
+path="res://.godot/imported/sumbg2.png-43ada840128d710851251963db1b2427.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/credits.png"
-dest_files=["res://.godot/imported/credits.png-90b9a326f6707a0fa8c36f808e4378d8.ctex"]
+source_file="res://assets/sumbg2.png"
+dest_files=["res://.godot/imported/sumbg2.png-43ada840128d710851251963db1b2427.ctex"]
 
 [params]
 

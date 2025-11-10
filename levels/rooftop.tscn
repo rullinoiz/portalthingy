@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://0rfi5qxt3cy4"]
+
+[ext_resource type="Texture2D" uid="uid://bod53qshnp65r" path="res://assets/sumbg2.png" id="1_b6qnm"]
+[ext_resource type="Script" uid="uid://dc37js8ttojvt" path="res://levels/rooftop.gd" id="1_cyuf6"]
+[ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="2_cyuf6"]
+[ext_resource type="Texture2D" uid="uid://c4svvpyq2nlr0" path="res://assets/rene.PNG" id="3_nu2v4"]
+[ext_resource type="AudioStream" uid="uid://vnfwhbfgqdr3" path="res://sfx/wind.wav" id="4_tbmbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2i5p"]
+size = Vector2(120, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsme"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ofo"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ute6l"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7e6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlsme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2lfp"]
+size = Vector2(576, 70)
+
+[node name="Rooftop" type="Node2D"]
+script = ExtResource("1_cyuf6")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.5, 323.5)
+scale = Vector2(0.60125965, 0.5987725)
+texture = ExtResource("1_b6qnm")
+
+[node name="Rene (Character)" type="CharacterBody2D" parent="."]
+position = Vector2(14, 563)
+scale = Vector2(0.20593609, 0.20593609)
+script = ExtResource("2_cyuf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rene (Character)"]
+shape = SubResource("RectangleShape2D_c2i5p")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rene (Character)"]
+position = Vector2(6.1035156e-05, -7.999878)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_l7e6v")
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 599)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-288, 13)
+shape = SubResource("RectangleShape2D_l2lfp")
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tbmbm")
+autoplay = true
