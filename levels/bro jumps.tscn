@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhwrk5wyub6vm"]
+[gd_scene load_steps=5 format=3 uid="uid://bjf54y5o1q1mo"]
 
 [ext_resource type="Texture2D" uid="uid://cumg6vecqrwtu" path="res://assets/renefalling.PNG" id="1_0ql4g"]
-[ext_resource type="Texture2D" uid="uid://vx4hyusctyrw" path="res://assets/renefalling(1).png" id="2_8f4sg"]
 
 [sub_resource type="Animation" id="Animation_0ql4g"]
 resource_name = "Cut scene"
@@ -13,22 +12,10 @@ tracks/0/path = NodePath("TextureRect:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(-2, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.53588665),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(4.7683716e-07, -2333.0002)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(-0.5, 1),
-"update": 0,
-"values": [Vector2(0, -1080), Vector2(0, 1080)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8f4sg"]
@@ -44,18 +31,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1080)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_av1ri"]
@@ -76,7 +51,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1920.0002
-scale = Vector2(1.778, 1.778)
 texture = ExtResource("1_0ql4g")
 stretch_mode = 2
 
@@ -84,9 +58,3 @@ stretch_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_av1ri")
 }
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_top = -1080.0
-offset_right = 1920.0
-texture = ExtResource("2_8f4sg")

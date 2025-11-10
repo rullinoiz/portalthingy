@@ -129,6 +129,7 @@ _data = {
 }
 
 [node name="Ending" type="Node2D"]
+scale = Vector2(1.6714281, 1.6714281)
 script = ExtResource("1_bjuy8")
 
 [node name="Background" type="Sprite2D" parent="."]
