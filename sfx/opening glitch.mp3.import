@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yfah3y5onmf3"
+path="res://.godot/imported/opening glitch.mp3-c1925e416e5a4dfea05d2570f6b42b5d.mp3str"
+
+[deps]
+
+source_file="res://sfx/opening glitch.mp3"
+dest_files=["res://.godot/imported/opening glitch.mp3-c1925e416e5a4dfea05d2570f6b42b5d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
