@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr7ge4wsofrvj"]
+[gd_scene load_steps=13 format=3 uid="uid://dr7ge4wsofrvj"]
 
 [ext_resource type="Script" uid="uid://vs05tj2rwp1a" path="res://root.gd" id="1_vxcut"]
 [ext_resource type="Script" uid="uid://b4x5brurg473h" path="res://gui.gd" id="2_5fy3c"]
@@ -6,11 +6,22 @@
 [ext_resource type="Script" uid="uid://dipm33aaguha0" path="res://world3d.gd" id="3_to8sf"]
 [ext_resource type="PackedScene" uid="uid://c0apnob03qvrj" path="res://player.tscn" id="4_8sax3"]
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
+[ext_resource type="Texture2D" uid="uid://nikycgqcxyhq" path="res://assets/cogitobg.png" id="7_5fy3c"]
+[ext_resource type="Texture2D" uid="uid://c4xl60r3l8fru" path="res://assets/bg1.tres" id="7_etutw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i14i6"]
+font_size = 100
 
 [sub_resource type="Environment" id="Environment_pyidc"]
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 1.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i14i6"]
+albedo_texture = ExtResource("7_etutw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhrwy"]
+albedo_texture = ExtResource("7_5fy3c")
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("world3d", "world2d", "gui")]
 script = ExtResource("1_vxcut")
@@ -53,6 +64,19 @@ scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("3_i14i6")
 stretch_mode = 0
 
+[node name="Label" type="Label" parent="Menu/NinePatchRect/TextureButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Take Pill (E)"
+label_settings = SubResource("LabelSettings_i14i6")
+horizontal_alignment = 1
+
 [node name="World2D" type="Node2D" parent="."]
 
 [node name="World3D" type="Node3D" parent="." node_paths=PackedStringArray("slicedMap", "player", "camera", "cameraPivot")]
@@ -83,6 +107,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.36)
 [node name="Camera3D" type="Camera3D" parent="World3D/Center/Spinner"]
 projection = 1
 size = 33.858
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World3D"]
+transform = Transform3D(-120, 0, -1.509958e-07, 0, 41.97542, 0, 1.8119496e-05, 0, -1, 0.56396484, 17.261875, -71.8237)
+flip_faces = true
+size = Vector3(0.5128174, 0.86151123, 1)
+material = SubResource("StandardMaterial3D_i14i6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World3D"]
+transform = Transform3D(2.336486e-05, 0, -0.99999994, 0, 41.975418, 0, 120, 0, 1.9470718e-07, -76.15996, 17.261875, -0.05366516)
+flip_faces = true
+size = Vector3(0.5128174, 0.86151123, 1)
+material = SubResource("StandardMaterial3D_lhrwy")
 
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="Menu" method="_on_texture_button_pressed"]
