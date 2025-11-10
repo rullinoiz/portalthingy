@@ -1,0 +1,43 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cci31ylgape5m"]
+
+[ext_resource type="Texture2D" uid="uid://c4svvpyq2nlr0" path="res://assets/rene.PNG" id="1_bcyf1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsme"]
+atlas = ExtResource("1_bcyf1")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ofo"]
+atlas = ExtResource("1_bcyf1")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ute6l"]
+atlas = ExtResource("1_bcyf1")
+region = Rect2(3000, 0, 1000, 1000)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlsme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

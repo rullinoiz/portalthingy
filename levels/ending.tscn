@@ -117,7 +117,7 @@ tracks/0/path = NodePath("Credits/AnimatableBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 30),
+"times": PackedFloat32Array(0, 14.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(6.1035156e-05, -1.5258789e-05), Vector2(0, 1400)]
@@ -130,7 +130,7 @@ _data = {
 }
 
 [node name="Ending" type="Node2D"]
-scale = Vector2(1.6646413, 1.6658912)
+scale = Vector2(1.024641, 1.0256834)
 script = ExtResource("1_bjuy8")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -187,7 +187,7 @@ animation = &"walk"
 
 [node name="grassWalk" type="AudioStreamPlayer" parent="Rene (Character)"]
 stream = ExtResource("7_5rl63")
-autoplay = true
+volume_db = -14.379
 
 [node name="Credits" type="Node2D" parent="."]
 script = ExtResource("8_lhicl")

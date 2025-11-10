@@ -8,8 +8,12 @@ var last_slice: Array[Array]
 var canRotate: bool = true
 var rotatePosition: Vector3
 
+@export var sprite: AnimatedSprite3D
+
 func _process(delta: float) -> void:
-	if Global.world3d.rotating: return
+	if Global.world3d.rotating: 
+		$AnimatedSprite3D.stop()
+		return
 	
 	if not last_slice:
 		if Global.world3d:
@@ -42,6 +46,17 @@ func _process(delta: float) -> void:
 			canRotate = false
 	else:
 		canRotate = false
+	
+	if Input.is_action_just_pressed("move_left"):
+		$AnimatedSprite3D.flip_h = false
+		$AnimatedSprite3D.play("walk")
+	elif Input.is_action_just_pressed("move_right"):
+		$AnimatedSprite3D.flip_h = true
+		$AnimatedSprite3D.play("walk")
+	
+	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
+		$AnimatedSprite3D.play("idle")
+		
 
 func _physics_process(delta: float) -> void:
 	if Global.world3d.rotating: return

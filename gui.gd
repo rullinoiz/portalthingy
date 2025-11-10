@@ -6,13 +6,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not Global.world3d: return
 	
 	if Global.world3d.player.canRotate:
 		$NinePatchRect/TextureButton.modulate = Color("ffffff")
 	else:
-		$NinePatchRect/TextureButton.modulate = Color("0e0e0e")
+		$NinePatchRect/TextureButton.modulate = Color("242424ff")
 		
 	
 

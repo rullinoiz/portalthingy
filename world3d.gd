@@ -131,6 +131,12 @@ func rotate_map(r: Vector3i, pos: Vector3, tween: bool = true) -> void:
 		)
 	else:
 		cameraPivot.rotation_degrees = tweenVector
+	
+	player.sprite.rotation_degrees = Vector3.ZERO
+	if abs(r.x) == 1:
+		player.sprite.axis = Vector3.Axis.AXIS_X
+	elif abs(r.z) == 1:
+		player.sprite.axis = Vector3.Axis.AXIS_Z
 
 
 # Called when the node enters the scene tree for the first time.

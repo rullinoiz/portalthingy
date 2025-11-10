@@ -43,6 +43,7 @@ stream = ExtResource("5_dpxxx")
 
 [node name="pilluse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7ufi4")
+volume_db = -20.733
 
 [node name="textbox" type="TextureRect" parent="."]
 layout_mode = 0

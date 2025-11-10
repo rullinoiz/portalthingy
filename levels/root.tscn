@@ -6,13 +6,13 @@
 [ext_resource type="Script" uid="uid://dipm33aaguha0" path="res://world3d.gd" id="3_to8sf"]
 [ext_resource type="PackedScene" uid="uid://c0apnob03qvrj" path="res://player.tscn" id="4_8sax3"]
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
-[ext_resource type="Material" uid="uid://c4xl60r3l8fru" path="res://assets/bg1.tres" id="7_etutw"]
-[ext_resource type="Material" uid="uid://cdcu1mcusxxc4" path="res://assets/bg1-2.tres" id="7_lhrwy"]
-[ext_resource type="Script" uid="uid://bulks8i6wqmxn" path="res://levels/csg_box_3d_2.gd" id="9_1xl1n"]
-[ext_resource type="Material" uid="uid://cj84vws2bnukk" path="res://assets/bg2.tres" id="9_bjrio"]
-[ext_resource type="Material" uid="uid://b0unp1wa4bbub" path="res://assets/bg2-2.tres" id="9_lhrwy"]
-[ext_resource type="Material" uid="uid://defd05y0x80jr" path="res://assets/bg3.tres" id="10_58oqp"]
-[ext_resource type="Material" uid="uid://bv68o5y284cu5" path="res://assets/bg3-2.tres" id="12_58oqp"]
+[ext_resource type="PackedScene" uid="uid://dfo5h2xcirhpg" path="res://csg_box_3d.tscn" id="7_5fy3c"]
+[ext_resource type="Material" uid="uid://cdcu1mcusxxc4" path="res://assets/bg1-2.tres" id="8_58oqp"]
+[ext_resource type="Material" uid="uid://b0unp1wa4bbub" path="res://assets/bg2-2.tres" id="9_i4b5w"]
+[ext_resource type="Material" uid="uid://bv68o5y284cu5" path="res://assets/bg3-2.tres" id="10_u0b1e"]
+[ext_resource type="Material" uid="uid://c4xl60r3l8fru" path="res://assets/bg1.tres" id="11_agmgf"]
+[ext_resource type="Material" uid="uid://cj84vws2bnukk" path="res://assets/bg2.tres" id="12_0n3kd"]
+[ext_resource type="Material" uid="uid://defd05y0x80jr" path="res://assets/bg3.tres" id="13_4k1hv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i14i6"]
 font_size = 200
@@ -111,24 +111,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.36)
 projection = 1
 size = 33.858
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World3D"]
-transform = Transform3D(-120, 0, -1.509958e-07, 0, 41.97542, 0, 1.8119496e-05, 0, -1, 0.56396484, 17.261875, -71.8237)
-flip_faces = true
-size = Vector3(0.5128174, 0.86151123, 1)
-material = ExtResource("7_etutw")
-script = ExtResource("9_1xl1n")
-resources = Array[StandardMaterial3D]([ExtResource("7_etutw"), ExtResource("9_bjrio"), ExtResource("10_58oqp")])
+[node name="CSGBox3D2" parent="World3D" instance=ExtResource("7_5fy3c")]
+transform = Transform3D(2.3364862e-05, 0, -0.99999994, 0, 41.975418, 0, 120, 0, 1.9470717e-07, -76.15996, 17.261875, -0.05366516)
+material = ExtResource("8_58oqp")
+resources = Array[StandardMaterial3D]([ExtResource("8_58oqp"), ExtResource("9_i4b5w"), ExtResource("10_u0b1e")])
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="World3D"]
-transform = Transform3D(2.336486e-05, 0, -0.99999994, 0, 41.975418, 0, 120, 0, 1.9470718e-07, -76.15996, 17.261875, -0.05366516)
-flip_faces = true
-size = Vector3(0.5128174, 0.86151123, 1)
-material = ExtResource("7_lhrwy")
-script = ExtResource("9_1xl1n")
-resources = Array[StandardMaterial3D]([ExtResource("7_lhrwy"), ExtResource("9_lhrwy"), ExtResource("12_58oqp")])
+[node name="CSGBox3D3" parent="World3D" instance=ExtResource("7_5fy3c")]
+transform = Transform3D(-120, 0, -1.509958e-07, 0, 41.975418, 0, 1.8119494e-05, 0, -0.99999994, 0, 17.06292, -42.395283)
+material = ExtResource("11_agmgf")
+resources = Array[StandardMaterial3D]([ExtResource("11_agmgf"), ExtResource("12_0n3kd"), ExtResource("13_4k1hv")])
 
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="Menu" method="_on_texture_button_pressed"]
 [connection signal="map_changed" from="World3D" to="World3D/Player" method="_on_world_3d_map_changed"]
 [connection signal="map_changed" from="World3D" to="World3D/CSGBox3D2" method="_on_world_3d_map_changed"]
+[connection signal="map_changed" from="World3D" to="World3D/CSGBox3D3" method="_on_world_3d_map_changed"]
 [connection signal="map_rotated" from="World3D" to="World3D/Player" method="_on_world_3d_map_rotated"]

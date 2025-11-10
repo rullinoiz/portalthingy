@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfo5h2xcirhpg"]
+
+[ext_resource type="Script" uid="uid://bulks8i6wqmxn" path="res://levels/csg_box_3d_2.gd" id="2_1rqdr"]
+
+[node name="CSGBox3D2" type="CSGBox3D"]
+transform = Transform3D(2.336486e-05, 0, -0.99999994, 0, 41.975418, 0, 120, 0, 1.9470718e-07, 0, 0, 0)
+flip_faces = true
+size = Vector3(0.5128174, 0.86151123, 1)
+script = ExtResource("2_1rqdr")

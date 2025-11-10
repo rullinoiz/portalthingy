@@ -1,4 +1,6 @@
-[gd_resource type="CompressedTexture2D" load_steps=0 format=3 uid="uid://c4xl60r3l8fru"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4xl60r3l8fru"]
+
+[ext_resource type="Texture2D" uid="uid://do476s1njfq4j" path="res://assets/bg1 otheraxis.png" id="1_bwxx8"]
 
 [resource]
-load_path = "res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.s3tc.ctex"
+albedo_texture = ExtResource("1_bwxx8")
