@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://3opl8gn3534x"]
+
+[ext_resource type="Texture2D" uid="uid://bod53qshnp65r" path="res://assets/sumbg2.png" id="1_b6qnm"]
+[ext_resource type="Script" path="res://levels/rooftop.gd" id="1_cyuf6"]
+[ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="2_cyuf6"]
+[ext_resource type="Texture2D" uid="uid://c4svvpyq2nlr0" path="res://assets/rene.PNG" id="3_nu2v4"]
+[ext_resource type="AudioStream" uid="uid://vnfwhbfgqdr3" path="res://sfx/wind.wav" id="4_tbmbm"]
+[ext_resource type="Script" uid="uid://bip5uh26o8fvx" path="res://levels/area_2d.gd" id="6_nu2v4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2i5p"]
+size = Vector2(120, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsme"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ofo"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ute6l"]
+atlas = ExtResource("3_nu2v4")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7e6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlsme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute6l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2lfp"]
+size = Vector2(577.8425, 71.96564)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu2v4"]
+size = Vector2(848.4736, 226.54012)
+
+[node name="Rooftop" type="Node2D"]
+scale = Vector2(1.6829002, 1.6840723)
+script = ExtResource("1_cyuf6")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.5, 323.5)
+scale = Vector2(0.60125965, 0.5987725)
+texture = ExtResource("1_b6qnm")
+
+[node name="Rene (Character)" type="CharacterBody2D" parent="."]
+position = Vector2(13.844143, 559.3954)
+scale = Vector2(0.20593609, 0.20593609)
+script = ExtResource("2_cyuf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rene (Character)"]
+shape = SubResource("RectangleShape2D_c2i5p")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rene (Character)"]
+position = Vector2(6.1035156e-05, -7.999878)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_l7e6v")
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 599)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-287.07874, 12.017151)
+scale = Vector2(1, 0.99999976)
+shape = SubResource("RectangleShape2D_l2lfp")
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tbmbm")
+autoplay = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("6_nu2v4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(877.6516, 1275.4796)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_nu2v4")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
