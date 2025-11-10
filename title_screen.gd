@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_play_pressed():
 	$click.play()
-	get_tree().change_scene_to_file("res://levels/root.tscn")
+	get_tree().change_scene_to_file("res://intro.tscn")
 
 func _on_credits_pressed():
 	$click.play()

@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://cexcpuw4xvahc"]
+
+[ext_resource type="Script" uid="uid://dlde2ros23hpl" path="res://intro.gd" id="1_y72e6"]
+[ext_resource type="Texture2D" uid="uid://bnses7jbvduy" path="res://assets/introbg.PNG" id="2_u2rf6"]
+[ext_resource type="Texture2D" uid="uid://p8407opwroa5" path="res://assets/reneintro.png" id="3_y6ycx"]
+[ext_resource type="Texture2D" uid="uid://bi06rnd243ukb" path="res://assets/textbox.png" id="4_dpxxx"]
+[ext_resource type="AudioStream" uid="uid://dknke5m2j2njy" path="res://sfx/therapistvoice.mp3" id="4_y6ycx"]
+[ext_resource type="FontFile" uid="uid://b50xj28hqjqdx" path="res://assets/miniboi.ttf" id="5_dk2oa"]
+[ext_resource type="AudioStream" uid="uid://cfrje54u7mtrx" path="res://sfx/renevoice.ogg" id="5_dpxxx"]
+[ext_resource type="AudioStream" uid="uid://bfv46118nlpe1" path="res://sfx/pilluse.wav" id="7_7ufi4"]
+
+[node name="intro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y72e6")
+
+[node name="therapist" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_u2rf6")
+expand_mode = 1
+
+[node name="rene" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y6ycx")
+expand_mode = 1
+
+[node name="voicetherapist" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y6ycx")
+
+[node name="voicerene" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dpxxx")
+
+[node name="pilluse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7ufi4")
+
+[node name="textbox" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 300.0
+offset_right = 2345.0
+offset_bottom = 1380.0
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("4_dpxxx")
+
+[node name="text" type="Label" parent="textbox"]
+layout_mode = 0
+offset_left = 109.333374
+offset_top = 293.33337
+offset_right = 1810.6666
+offset_bottom = 781.3334
+theme_override_fonts/font = ExtResource("5_dk2oa")
+theme_override_font_sizes/font_size = 111
+text = "- How are you feeling today, Rene?"
+autowrap_mode = 2
+
+[node name="fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1172.0
+offset_bottom = 672.0
+color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="act_label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 221.0
+offset_top = 262.0
+offset_right = 971.0
+offset_bottom = 362.0
+theme_override_colors/font_color = Color(0.92941177, 0.92941177, 0.92941177, 1)
+theme_override_fonts/font = ExtResource("5_dk2oa")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
