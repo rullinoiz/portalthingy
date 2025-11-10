@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://do476s1njfq4j"
 path.s3tc="res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.s3tc.ctex"
+path.etc2="res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/bg1 otheraxis.png"
-dest_files=["res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.s3tc.ctex"]
+dest_files=["res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.s3tc.ctex", "res://.godot/imported/bg1 otheraxis.png-02369e81cc387de0f825b2a22bf25413.etc2.ctex"]
 
 [params]
 
