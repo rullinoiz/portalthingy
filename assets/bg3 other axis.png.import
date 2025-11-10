@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djsmyem4q1e57"
 path.s3tc="res://.godot/imported/bg3 other axis.png-d42984b5d3f555ed954ae1d4a96ddb5d.s3tc.ctex"
-path.etc2="res://.godot/imported/bg3 other axis.png-d42984b5d3f555ed954ae1d4a96ddb5d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/bg3 other axis.png"
-dest_files=["res://.godot/imported/bg3 other axis.png-d42984b5d3f555ed954ae1d4a96ddb5d.s3tc.ctex", "res://.godot/imported/bg3 other axis.png-d42984b5d3f555ed954ae1d4a96ddb5d.etc2.ctex"]
+dest_files=["res://.godot/imported/bg3 other axis.png-d42984b5d3f555ed954ae1d4a96ddb5d.s3tc.ctex"]
 
 [params]
 

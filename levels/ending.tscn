@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b6tb6v2srsj3v"]
+[gd_scene load_steps=24 format=4 uid="uid://b6tb6v2srsj3v"]
 
 [ext_resource type="Texture2D" uid="uid://2mbsbhj08iab" path="res://assets/grass.png" id="1_anow7"]
 [ext_resource type="Script" uid="uid://8r11yyvfp2fb" path="res://ending.gd" id="1_bjuy8"]
@@ -6,9 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://1mg637uaixcf" path="res://sfx/birdambiance.wav" id="3_dob33"]
 [ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="5_7udrn"]
 [ext_resource type="Texture2D" uid="uid://ca1p0bfxg12kh" path="res://assets/renecolor.PNG" id="5_f8nk4"]
+[ext_resource type="AudioStream" uid="uid://tri05nq06twn" path="res://sfx/grassstep.wav" id="7_5rl63"]
 [ext_resource type="Texture2D" uid="uid://dv6q3lymn6k3b" path="res://assets/credits but black.png" id="7_6cl2c"]
-[ext_resource type="Script" path="res://levels/animatable_body_2d.gd" id="8_5rl63"]
-[ext_resource type="Script" path="res://levels/credits.gd" id="8_lhicl"]
+[ext_resource type="Script" uid="uid://dhm7sfwtl5syr" path="res://levels/animatable_body_2d.gd" id="8_5rl63"]
+[ext_resource type="Script" uid="uid://7dnrytphed5a" path="res://levels/credits.gd" id="8_lhicl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cl2c"]
 size = Vector2(59, 600)
@@ -114,7 +115,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Credits/AnimatableBody2D:position")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
@@ -129,7 +130,7 @@ _data = {
 }
 
 [node name="Ending" type="Node2D"]
-scale = Vector2(1.6714281, 1.6714281)
+scale = Vector2(1.6646413, 1.6658912)
 script = ExtResource("1_bjuy8")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -166,25 +167,27 @@ tile_map_data = PackedByteArray("AAAAAEsAAAABAAAAAAABAEsAAAABAAAAAAACAEsAAAABAAA
 tile_set = SubResource("TileSet_j14t3")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="birdchirping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dob33")
 autoplay = true
 
 [node name="Rene (Character)" type="CharacterBody2D" parent="."]
-position = Vector2(577, -306)
-scale = Vector2(0.12541595, 0.12541595)
+position = Vector2(564.6862, -1881.8757)
+scale = Vector2(0.20872454, 0.20872454)
 script = ExtResource("5_7udrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rene (Character)"]
 shape = SubResource("RectangleShape2D_7udrn")
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rene (Character)"]
 position = Vector2(6.1035156e-05, -7.999878)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_5rl63")
 animation = &"walk"
-metadata/_edit_lock_ = true
+
+[node name="grassWalk" type="AudioStreamPlayer" parent="Rene (Character)"]
+stream = ExtResource("7_5rl63")
+autoplay = true
 
 [node name="Credits" type="Node2D" parent="."]
 script = ExtResource("8_lhicl")
@@ -199,8 +202,11 @@ root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_bvc8j")
 }
+speed_scale = 2.0
 
 [node name="names_Credits" type="Sprite2D" parent="Credits/AnimatableBody2D"]
 position = Vector2(577.0001, -1098.4113)
 scale = Vector2(0.5101851, 0.5101851)
 texture = ExtResource("7_6cl2c")
+
+[connection signal="finished" from="birdchirping" to="." method="_on_audio_stream_player_finished"]

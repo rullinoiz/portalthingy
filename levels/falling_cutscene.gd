@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_falling_cutscene_finished() -> void:
-	get_tree().change_scene_to_file("res://levels/fallingCutscene.tscn")
+	get_tree().change_scene_to_file("res://levels/ending.tscn")
 	pass # Replace with function body.

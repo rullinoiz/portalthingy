@@ -91,6 +91,7 @@ shape = SubResource("RectangleShape2D_l2lfp")
 
 [node name="Wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tbmbm")
+volume_db = -20.0
 autoplay = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -100,5 +101,14 @@ script = ExtResource("6_nu2v4")
 position = Vector2(877.6516, 1275.4796)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_nu2v4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 288.7872
+offset_top = 174.57683
+offset_right = 331.10837
+offset_bottom = 199.01392
+scale = Vector2(3.143621, 2.9675272)
+text = "Jump"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

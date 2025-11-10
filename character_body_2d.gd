@@ -5,6 +5,7 @@ const SPEED = 250.0
 const JUMP_VELOCITY = -350.0
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _grasswalk_audio = $grassWalk
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +25,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		_animated_sprite.play("walk")
 		_animated_sprite.flip_h=direction > 0
+		if Input.is_action_just_pressed("move_left"):
+			_grasswalk_audio.play()
+			_grasswalk_audio.loop()
 		
 	else:
 		_animated_sprite.play("idle")
