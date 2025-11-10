@@ -57,6 +57,29 @@ func load_map(id: int) -> void:
 	currentMap.visible = false
 	map_changed.emit(id)
 
+func _on_map_changed(id: int) -> void:
+	print("Map changed! id:", id)
+	print("ActText exists?", player.has_node("ActText"))
+	var act_label = player.get_node("ActText")
+
+	if id == 1 or id == 2:
+		var act_text = "[ACT II. ERGO]" if id == 1 else "[ACT III. SUM]"
+		act_label.text = act_text
+		act_label.modulate.a = 1   # start fully visible
+		act_label.visible = true
+
+		# wait for a moment
+		await get_tree().create_timer(1.5).timeout
+
+		# fade out manually
+		var fade_time := 0.5
+		var t := 0.0
+		while t < fade_time:
+			t += get_process_delta_time()
+			act_label.modulate.a = lerp(1, 0, t / fade_time)
+			await get_tree().process_frame
+		act_label.visible = false
+
 func create_slice(r: Vector3i) -> void:
 	new_slice.emit(currentSlice)
 	slicedMap.free_children()
@@ -146,6 +169,8 @@ func _ready() -> void:
 	for child in p.get_children():
 		child.owner = null
 		tiles.append(child)
+	
+	map_changed.connect(_on_map_changed)
 	
 	load_map(0)
 

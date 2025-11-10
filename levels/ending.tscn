@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b6tb6v2srsj3v"]
+[gd_scene load_steps=23 format=4 uid="uid://b6tb6v2srsj3v"]
 
 [ext_resource type="Texture2D" uid="uid://2mbsbhj08iab" path="res://assets/grass.png" id="1_anow7"]
 [ext_resource type="Script" uid="uid://8r11yyvfp2fb" path="res://ending.gd" id="1_bjuy8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="5_7udrn"]
 [ext_resource type="Texture2D" uid="uid://ca1p0bfxg12kh" path="res://assets/renecolor.PNG" id="5_f8nk4"]
 [ext_resource type="AudioStream" uid="uid://tri05nq06twn" path="res://sfx/grassstep.wav" id="7_5rl63"]
-[ext_resource type="Texture2D" uid="uid://dv6q3lymn6k3b" path="res://assets/credits but black.png" id="7_6cl2c"]
 [ext_resource type="Script" uid="uid://dhm7sfwtl5syr" path="res://levels/animatable_body_2d.gd" id="8_5rl63"]
 [ext_resource type="Script" uid="uid://7dnrytphed5a" path="res://levels/credits.gd" id="8_lhicl"]
 
@@ -203,10 +202,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_bvc8j")
 }
 speed_scale = 2.0
-
-[node name="names_Credits" type="Sprite2D" parent="Credits/AnimatableBody2D"]
-position = Vector2(577.0001, -1098.4113)
-scale = Vector2(0.5101851, 0.5101851)
-texture = ExtResource("7_6cl2c")
 
 [connection signal="finished" from="birdchirping" to="." method="_on_audio_stream_player_finished"]

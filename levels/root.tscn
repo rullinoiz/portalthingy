@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr7ge4wsofrvj"]
+[gd_scene load_steps=18 format=3 uid="uid://dr7ge4wsofrvj"]
 
 [ext_resource type="Script" uid="uid://vs05tj2rwp1a" path="res://root.gd" id="1_vxcut"]
 [ext_resource type="Script" uid="uid://b4x5brurg473h" path="res://gui.gd" id="2_5fy3c"]
 [ext_resource type="Texture2D" uid="uid://dyylb7ia4kwll" path="res://assets/Untitled_Artwork.png" id="3_i14i6"]
 [ext_resource type="Script" uid="uid://dipm33aaguha0" path="res://world3d.gd" id="3_to8sf"]
 [ext_resource type="PackedScene" uid="uid://c0apnob03qvrj" path="res://player.tscn" id="4_8sax3"]
+[ext_resource type="FontFile" uid="uid://b50xj28hqjqdx" path="res://assets/miniboi.ttf" id="4_agmgf"]
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
+[ext_resource type="AudioStream" uid="uid://bfv46118nlpe1" path="res://sfx/pilluse.wav" id="6_4k1hv"]
 [ext_resource type="PackedScene" uid="uid://dfo5h2xcirhpg" path="res://csg_box_3d.tscn" id="7_5fy3c"]
 [ext_resource type="Material" uid="uid://cdcu1mcusxxc4" path="res://assets/bg1-2.tres" id="8_58oqp"]
 [ext_resource type="Material" uid="uid://b0unp1wa4bbub" path="res://assets/bg2-2.tres" id="9_i4b5w"]
@@ -38,6 +40,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_5fy3c")
 
+[node name="PillUse" type="AudioStreamPlayer" parent="Menu"]
+stream = ExtResource("6_4k1hv")
+volume_db = -5.0
+
 [node name="NinePatchRect" type="NinePatchRect" parent="Menu"]
 layout_mode = 1
 anchors_preset = 15
@@ -69,12 +75,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.999999
-offset_top = -140.00012
+offset_left = 10.0
+offset_top = -140.0
 offset_right = 10.0
-offset_bottom = 132.99988
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_agmgf")
 text = "Take Pill (E)"
 label_settings = SubResource("LabelSettings_i14i6")
 horizontal_alignment = 1
@@ -97,6 +104,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.606358, -1)
 floor_stop_on_slope = false
 floor_max_angle = 1.2269665
 platform_floor_layers = 4278190081
+
+[node name="ActText" type="Label" parent="World3D/Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -50.0
+offset_right = 344.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8627451, 0.8627451, 0.8627451, 1)
+theme_override_fonts/font = ExtResource("4_agmgf")
+theme_override_font_sizes/font_size = 100
+
+[node name="PillUse" type="AudioStreamPlayer" parent="World3D/Player"]
+stream = ExtResource("6_4k1hv")
+volume_db = -5.0
 
 [node name="LevelSlice" type="Node3D" parent="World3D"]
 script = ExtResource("5_fu3v7")

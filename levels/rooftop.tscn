@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://3opl8gn3534x"]
+[gd_scene load_steps=10 format=3 uid="uid://3opl8gn3534x"]
 
 [ext_resource type="Texture2D" uid="uid://bod53qshnp65r" path="res://assets/sumbg2.png" id="1_b6qnm"]
-[ext_resource type="Script" path="res://levels/rooftop.gd" id="1_cyuf6"]
+[ext_resource type="Script" uid="uid://dc37js8ttojvt" path="res://levels/rooftop.gd" id="1_cyuf6"]
 [ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="2_cyuf6"]
 [ext_resource type="SpriteFrames" uid="uid://cci31ylgape5m" path="res://assets/rene_sprite_frames.tres" id="4_nu2v4"]
 [ext_resource type="AudioStream" uid="uid://vnfwhbfgqdr3" path="res://sfx/wind.wav" id="4_tbmbm"]
-[ext_resource type="Script" path="res://levels/area_2d.gd" id="6_nu2v4"]
+[ext_resource type="Script" uid="uid://bip5uh26o8fvx" path="res://levels/area_2d.gd" id="6_nu2v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2i5p"]
 size = Vector2(120, 105)
@@ -15,12 +15,6 @@ size = Vector2(577.8425, 71.96564)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu2v4"]
 size = Vector2(848.4736, 226.54012)
-
-[sub_resource type="Gradient" id="Gradient_nu2v4"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tbmbm"]
-gradient = SubResource("Gradient_nu2v4")
 
 [node name="Rooftop" type="Node2D"]
 scale = Vector2(1.0029008, 1.0040709)
@@ -77,10 +71,5 @@ offset_right = 331.10837
 offset_bottom = 199.01392
 scale = Vector2(3.5647836, 1.9151572)
 text = "Jump"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(979.15967, 566.6931)
-scale = Vector2(1.4214054, 30.714428)
-texture = SubResource("GradientTexture1D_tbmbm")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

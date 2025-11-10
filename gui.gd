@@ -17,4 +17,11 @@ func _process(_delta: float) -> void:
 	
 
 func _on_texture_button_pressed() -> void:
-	Input.action_press("rotate_right")
+	if not Global.world3d: return
+	
+	if Global.world3d.player.canRotate:
+	
+		Input.action_press("rotate_right")
+		await get_tree().process_frame
+		$PillUse.play()
+	

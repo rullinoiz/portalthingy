@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if canRotate and Input.is_action_just_pressed("rotate_right"):
+		$PillUse.play()
 		var currentRotation := Global.world3d.currentRotation
 		if currentRotation.z == 1:
 			currentRotation = Vector3i(1, 0, 0)
