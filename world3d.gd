@@ -58,8 +58,6 @@ func load_map(id: int) -> void:
 	map_changed.emit(id)
 
 func _on_map_changed(id: int) -> void:
-	print("Map changed! id:", id)
-	print("ActText exists?", player.has_node("ActText"))
 	var act_label = player.get_node("ActText")
 
 	if id == 1 or id == 2:
