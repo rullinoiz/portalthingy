@@ -9,6 +9,9 @@ var smallestX: int = 1000
 var smallestY: int = 1000
 var smallestZ: int = 1000
 
+func normalize(v: Vector3i) -> Vector3i:
+	return Vector3i(size.x - v.x + smallestX - 1, size.y - v.y + smallestY - 1, size.z - v.z + smallestZ - 1)
+
 func get_slice(slice: Vector3i) -> Array[Array]:
 	var objects: Array[Array]
 	if slice.x == 1 or slice.x == -1: # objects[y][z]
@@ -28,7 +31,7 @@ func get_slice(slice: Vector3i) -> Array[Array]:
 			objects.append(array)
 		
 	for v: Vector3i in get_used_cells():
-		var normalized := Vector3i(size.x - v.x + smallestX - 1, size.y - v.y + smallestY - 1, size.z - v.z + smallestZ - 1)
+		var normalized := normalize(v)
 		if slice.x == 1 or slice.x == -1: 
 			var currentRow = objects[normalized.y]
 			var current: Variant = currentRow.get(normalized.z)

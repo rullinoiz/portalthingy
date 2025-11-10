@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr7ge4wsofrvj"]
+[gd_scene load_steps=8 format=3 uid="uid://dr7ge4wsofrvj"]
 
 [ext_resource type="Script" uid="uid://vs05tj2rwp1a" path="res://root.gd" id="1_vxcut"]
-[ext_resource type="Script" uid="uid://5v33ruw5b64k" path="res://menu.gd" id="2_c30p2"]
+[ext_resource type="Script" uid="uid://b4x5brurg473h" path="res://gui.gd" id="2_5fy3c"]
+[ext_resource type="Texture2D" uid="uid://dyylb7ia4kwll" path="res://assets/Untitled_Artwork.png" id="3_i14i6"]
 [ext_resource type="Script" uid="uid://dipm33aaguha0" path="res://world3d.gd" id="3_to8sf"]
 [ext_resource type="PackedScene" uid="uid://c0apnob03qvrj" path="res://player.tscn" id="4_8sax3"]
 [ext_resource type="Script" uid="uid://dp31ssukb7mt1" path="res://level_slice.gd" id="5_fu3v7"]
@@ -18,11 +19,39 @@ world2d = NodePath("World2D")
 gui = NodePath("Menu")
 
 [node name="Menu" type="Control" parent="."]
+texture_filter = 1
 layout_mode = 3
-anchors_preset = 0
-offset_right = 352.0
-offset_bottom = 326.0
-script = ExtResource("2_c30p2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_5fy3c")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Menu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -147.0
+offset_right = 942.0
+offset_bottom = 943.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("3_i14i6")
+stretch_mode = 0
 
 [node name="World2D" type="Node2D" parent="."]
 
@@ -54,3 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.36)
 [node name="Camera3D" type="Camera3D" parent="World3D/Center/Spinner"]
 projection = 1
 size = 33.858
+
+[connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Menu/NinePatchRect/TextureButton" to="Menu" method="_on_texture_button_pressed"]
+[connection signal="map_changed" from="World3D" to="World3D/Player" method="_on_world_3d_map_changed"]
+[connection signal="map_rotated" from="World3D" to="World3D/Player" method="_on_world_3d_map_rotated"]

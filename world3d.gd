@@ -50,6 +50,7 @@ func load_map(id: int) -> void:
 	create_slice(currentRotation)
 	
 	currentMap.visible = false
+	map_changed.emit(id)
 
 func create_slice(r: Vector3i) -> void:
 	new_slice.emit(currentSlice)
@@ -78,6 +79,7 @@ func create_slice(r: Vector3i) -> void:
 
 func rotate_map(r: Vector3i, pos: Vector3, tween: bool = true) -> void:
 	currentRotation = r
+	map_rotated.emit(r)
 	print(pos)
 	
 	var tweenVector: Vector3

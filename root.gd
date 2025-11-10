@@ -9,6 +9,3 @@ func _ready() -> void:
 	Global.world3d = world3d
 	Global.world2d = world2d
 	Global.gui = gui
-
-func _process(delta: float) -> void:
-	pass
