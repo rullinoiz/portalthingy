@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://bm8uad2l38mbb" path="res://character_body_2d.gd" id="5_7udrn"]
 [ext_resource type="Texture2D" uid="uid://ca1p0bfxg12kh" path="res://assets/renecolor.PNG" id="5_f8nk4"]
 [ext_resource type="Texture2D" uid="uid://dv6q3lymn6k3b" path="res://assets/credits but black.png" id="7_6cl2c"]
-[ext_resource type="Script" uid="uid://dhm7sfwtl5syr" path="res://levels/animatable_body_2d.gd" id="8_5rl63"]
-[ext_resource type="Script" uid="uid://7dnrytphed5a" path="res://levels/credits.gd" id="8_lhicl"]
+[ext_resource type="Script" path="res://levels/animatable_body_2d.gd" id="8_5rl63"]
+[ext_resource type="Script" path="res://levels/credits.gd" id="8_lhicl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cl2c"]
 size = Vector2(59, 600)
@@ -91,6 +91,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_y8xtl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits/AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.1035156e-05, -1.5258789e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_5rl63"]
 resource_name = "credits_Moving"
 length = 30.0
@@ -105,21 +120,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(6.1035156e-05, -1.5258789e-05), Vector2(0, 1400)]
-}
-
-[sub_resource type="Animation" id="Animation_y8xtl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Credits/AnimatableBody2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6.1035156e-05, -1.5258789e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bvc8j"]
@@ -170,7 +170,7 @@ stream = ExtResource("3_dob33")
 autoplay = true
 
 [node name="Rene (Character)" type="CharacterBody2D" parent="."]
-position = Vector2(590, 594)
+position = Vector2(577, -306)
 scale = Vector2(0.12541595, 0.12541595)
 script = ExtResource("5_7udrn")
 
